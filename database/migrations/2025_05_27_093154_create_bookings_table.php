@@ -9,12 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up() {
+    public function up(): void
+{
     Schema::create('bookings', function (Blueprint $table) {
         $table->id();
-        $table->string('payment_status')->default('unpaid');
-        $table->string('stripe_session_id')->nullable();
-        $table->string('booking_reference')->unique();
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->string('service_name');
+        $table->integer('quantity');
+        $table->decimal('total_price', 10, 2);
+        $table->date('booking_date');
+        $table->string('payment_method')->default('Cash on Service');
+        $table->string('status')->default('pending');
         $table->timestamps();
     });
 }

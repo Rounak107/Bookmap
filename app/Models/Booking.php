@@ -10,11 +10,12 @@ class Booking extends Model
 protected $fillable = [
     'user_id',
     'service_id',
+    'service_name',
+    'quantity',
+    'total_price',
     'booking_date',
+    'payment_method',
     'status',
-    'payment_status',
-    'stripe_session_id',
-    'booking_reference'
 ];
 
 protected $casts = [

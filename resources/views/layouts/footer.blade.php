@@ -44,15 +44,15 @@
                 <ul class="list-unstyled">
                     <li class="mb-3 d-flex">
                         <i class="fas fa-map-marker-alt me-3 mt-1"></i>
-                        <span>123 Service Lane, Kolkata, West Bengal 700001</span>
+                        <span>BOKMAP PVT. LTD, Smartpave Corporate Center, Room No:409, 4th Floor, Near Chandni Metro 3 No. Gate, 2 No Chandni Chowk Street, PS- Bow Bazar,Kolkata-700072</span>
                     </li>
                     <li class="mb-3 d-flex">
                         <i class="fas fa-phone-alt me-3 mt-1"></i>
-                        <span>+91 98765 43210</span>
+                        <span>+91 6291030338</span>
                     </li>
                     <li class="d-flex">
                         <i class="fas fa-envelope me-3 mt-1"></i>
-                        <span>support@bokmap.com</span>
+                        <span>bokmapcompany@gmail.com</span>
                     </li>
                 </ul>
             </div>

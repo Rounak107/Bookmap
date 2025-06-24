@@ -1,47 +1,54 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ServiceDetailController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
+require __DIR__.'/auth.php';
 
 // Home
-Route::get('/', [ServiceController::class, 'index'])->name('home');
-/*
-// Authentication Routes
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [RegisterController::class, 'register']);
-
-// Authenticated Routes
-Route::middleware(['auth'])->group(function () {
-    Route::resource('bookings', BookingController::class);
-});
-*/
-
-// Authentication
-Auth::routes();
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/service-details/{slug}', [ServiceDetailController::class, 'show'])->name('service.details');
 
 // Services
 Route::resource('services', ServiceController::class)->only(['index', 'show']);
 
-// Profile Routes
+// Cart
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{serviceId}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/increase/{id}', [CartController::class, 'increase'])->name('cart.increase');
+Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+Route::post('/cart/decrease/{id}', [CartController::class, 'decrease'])->name('cart.decrease');
+Route::post('/cart/update-date/{id}', [CartController::class, 'updateDate']);
+
+// Checkout
+Route::middleware(['auth'])->group(function () {
+    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+    Route::post('/checkout/confirm', [CheckoutController::class, 'confirmBooking'])->name('checkout.confirm');
+});
+
+// Booking dummy
+Route::get('/booking/create', function () {
+    return 'Booking page under construction.';
+})->name('booking.create');
+
+// Profile
 Route::middleware('auth')->group(function () {
-   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-   // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 });
 
 // Bookings
 Route::prefix('bookings')->group(function () {
     Route::get('/', [BookingController::class, 'index'])->name('bookings.index');
-    Route::get('/{service}', [BookingController::class, 'create'])->name('bookings.create');
-    Route::post('/{service}', [BookingController::class, 'store'])->name('bookings.store');
+    Route::get('/bookings/create/{service}', [BookingController::class, 'create'])->name('bookings.create');
+    Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
     Route::get('/success/{booking}', [BookingController::class, 'success'])->name('bookings.success');
-    //Route::get('/cancel/{booking}', [BookingController::class, 'cancel'])->name('bookings.cancel');
 });

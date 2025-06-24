@@ -21,24 +21,22 @@ class BookingController extends Controller
         return view('bookings.create', compact('service'));
     }
 
-    public function store(Request $request, Service $service)
+        public function store(Request $request)
     {
-        $request->validate([
-            'booking_date' => 'required|date',
-            'booking_time' => 'required',
+        $validated = $request->validate([
+            'service_id' => 'required|exists:services,id',
+            'date' => 'required|date|after_or_equal:today',
+            'address' => 'required|string|max:255',
         ]);
 
-        $bookingDate = $request->booking_date . ' ' . $request->booking_time;
-        
-        $booking = Booking::create([
-            'user_id' => auth()->id(),
-            'service_id' => $service->id,
-            'booking_date' => $bookingDate,
-            'status' => 'confirmed',
-            'booking_reference' => 'BKM-' . Str::upper(Str::random(6)),
+        Booking::create([
+            'user_id' => auth()->id(), // if using auth
+            'service_id' => $validated['service_id'],
+            'date' => $validated['date'],
+            'address' => $validated['address'],
         ]);
 
-        return redirect()->route('bookings.success', $booking);
+        return redirect()->route('services.index')->with('success', 'Booking placed successfully!');
     }
 
     public function success(Booking $booking)
