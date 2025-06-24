@@ -8,27 +8,25 @@
         <h5 class="fw-semibold mt-4">{{ $groupTitle }}</h5>
         <div class="row">
             @foreach ($groupServices as $item)
-                @php
-                    $uniqueId = md5($item['label'] . $item['price']);
-                @endphp
-                <div class="col-md-4 mb-4">
-                    <div class="card service-card shadow-sm h-100 border-0 animate__animated animate__fadeInUp">
-                        <img src="{{ asset('images/icons/' . $item['image']) }}" class="card-img-top" alt="{{ $item['label'] }}">
-                        <div class="card-body">
-                            <h6 class="card-title">{{ $item['label'] }} – ₹{{ $item['price'] }}</h6>
-                            <form method="POST" action="{{ route('cart.add', ['serviceId' => $uniqueId]) }}">
-                                @csrf
-                                <input type="hidden" name="label" value="{{ $item['label'] }}">
-                                <input type="hidden" name="price" value="{{ $item['price'] }}">
-                                <input type="hidden" name="image" value="{{ $item['image'] }}">
-                                <input type="hidden" name="date" value="{{ now()->toDateString() }}">
-                                <input type="hidden" name="add_more" value="0">
-                                <button type="submit" class="btn btn-primary w-100 mt-2">Book Now</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>            
-            @endforeach
+    <div class="col-md-4 mb-4">
+        <div class="card service-card shadow-sm h-100 border-0 animate__animated animate__fadeInUp">
+            <img src="{{ asset('images/icons/' . $item['image']) }}" class="card-img-top" alt="{{ $item['label'] }}">
+            <div class="card-body">
+                <h6 class="card-title">{{ $item['label'] }} – ₹{{ $item['price'] }}</h6>
+                {{-- ✅ Use REAL INTEGER ID --}}
+                <form method="POST" action="{{ route('cart.add', ['serviceId' => $item['id']]) }}">
+                    @csrf
+                    <input type="hidden" name="label" value="{{ $item['label'] }}">
+                    <input type="hidden" name="price" value="{{ $item['price'] }}">
+                    <input type="hidden" name="image" value="{{ $item['image'] }}">
+                    <input type="hidden" name="date" value="{{ now()->toDateString() }}">
+                    <button type="submit" class="btn btn-primary w-100 mt-2">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+@endforeach
+
         </div>
     @endforeach
 </div>

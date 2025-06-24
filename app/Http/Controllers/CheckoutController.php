@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Service;
 use App\Mail\BookingConfirmation;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log; 
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -35,44 +36,44 @@ class CheckoutController extends Controller
 
    public function confirmBooking(Request $request)
 {
-    $user = Auth::user();
+    $user = auth()->user();
     $cart = session()->get('cart', []);
 
     if (empty($cart)) {
-        return redirect('/cart')->with('error', 'Your cart is empty.');
+        return redirect()->route('cart.index')->with('error', 'Your cart is empty.');
     }
 
-    $bookings = [];
-
     foreach ($cart as $item) {
-        if (!isset($item['service_id'])) {
-            return redirect('/cart')->with('error', 'Service ID missing.');
+        \Log::info("Booking item", $item); // Debugging
+
+        if (empty($item['service_id'])) {
+            \Log::error('Missing service_id in cart item.');
+            continue;
         }
 
-        $service = Service::find($item['service_id']);
+        $serviceId = $item['service_id']; // ✅ Use real ID
+        $service = Service::find($serviceId);
+
         if (!$service) {
-            return redirect('/cart')->with('error', 'Service not found.');
+            \Log::error("Service not found: ID $serviceId");
+            continue;
         }
 
-        $bookings[] = Booking::create([
-            'user_id' => $user->id,
-            'service_id' => $service->id,
-            'service_name' => $item['service_name'],
-            'quantity' => $item['quantity'],
-            'total_price' => $item['total'],
-            'booking_date' => $item['date'],
-            'payment_method' => $request->payment_method,
-            'status' => 'confirmed',
-            'payment_id' => $request->razorpay_payment_id ?? null,
+        Booking::create([
+            'user_id'        => $user->id,
+            'service_id'     => $serviceId,
+            'service_name'   => $item['service_name'] ?? $service->name,
+            'quantity'       => $item['quantity'] ?? 1,
+            'total_price'    => $item['total'] ?? $service->price,
+            'booking_date'   => $item['date'] ?? now(),
+            'payment_method' => $request->payment_method ?? 'cod',
+            'status'         => 'confirmed',
         ]);
     }
 
-    // Send confirmation email with booking summary
-    Mail::to($user->email)->send(new BookingConfirmation($user, $bookings));
-
-    // Clear the cart
     session()->forget('cart');
+    session()->save();
 
-    return redirect('/')->with('success', 'Booking confirmed! Check your email for details.');
+    return redirect('/')->with('success', 'Your booking has been successfully placed!');
 }
 }

@@ -5,6 +5,12 @@
 @section('content')
 <div class="container py-4">
 
+@if(session('success'))
+    <div class="alert alert-success mt-3">
+        {{ session('success') }}
+    </div>
+@endif
+
     {{-- ✅ 1. Carousel Banner with Arrows & Overlay Header --}}
     <div class="position-relative mb-5" data-aos="fade-down">
         <div id="homepageCarousel" class="carousel slide" data-bs-ride="carousel">

@@ -17,14 +17,15 @@ class CartController extends Controller
 {
     $cart = session()->get('cart', []);
 
-    $key = md5($serviceId . $request->date); // unique key
+    // Use service ID directly as key for now + date for uniqueness
+    $key = $serviceId . '_' . $request->date;
 
     if (isset($cart[$key])) {
         $cart[$key]['quantity'] += 1;
         $cart[$key]['total'] = $cart[$key]['quantity'] * $cart[$key]['price'];
     } else {
         $cart[$key] = [
-            'service_id' => $serviceId,
+            'service_id' => (int) $serviceId, // ✅ Store actual integer ID
             'service_name' => $request->label,
             'quantity' => 1,
             'price' => $request->price,
@@ -36,16 +37,9 @@ class CartController extends Controller
 
     session()->put('cart', $cart);
 
-    // You can check if it's an AJAX request and return JSON:
-    if ($request->ajax()) {
-        return response()->json([
-            'success' => true,
-            'message' => 'Service added to cart',
-        ]);
-    }
-
     return redirect()->route('cart.index')->with('success', 'Service added to cart!');
 }
+
     public function increase($id)
 {
     $cart = session()->get('cart', []);
