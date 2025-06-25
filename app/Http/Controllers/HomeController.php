@@ -10,13 +10,11 @@ class HomeController extends Controller
 {
     public function index()
 {
-    $homeServices = Service::where('category', 'Home')->get();
+    $homeServices = Service::where('category', 'Home')->where('featured', true)->get();
     $kitchenServices = Service::where('category', 'Kitchen')->get();
     $interiorServices = Service::where('category', 'Home Interior')->get();
-    $services = Service::all(); // or use where('category', 'Home') if categorized
 
     return view('home', compact('homeServices', 'kitchenServices', 'interiorServices'));
     
 }
-
 }

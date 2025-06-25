@@ -71,31 +71,28 @@ class ServiceDetailController extends Controller
 
         $serviceGroups = [
             'Diagnostic & Repair Services' => [
-                ['label' => 'Diagnostic Check-Up', 'price' => 99, 'image' => 'wm-diagnose.jpeg'],
-
-                ['label' => 'Fully Automatic – Noise Issue', 'price' => 99, 'image' => 'wm-full-auto.png'],
-                ['label' => 'Fully Automatic – Power Issue', 'price' => 99, 'image' => 'wm-full-auto.png'],
-                ['label' => 'Fully Automatic – Not Spinning/Washing', 'price' => 99, 'image' => 'wm-full-auto.png'],
-                ['label' => 'Fully Automatic – Draining Issue', 'price' => 99, 'image' => 'wm-full-auto.png'],
-                ['label' => 'Fully Automatic – Error Display', 'price' => 99, 'image' => 'wm-full-auto.png'],
-                ['label' => 'Fully Automatic – Unknown Issue', 'price' => 99, 'image' => 'wm-full-auto.png'],
-
-                ['label' => 'Semi-Automatic – Noise Issue', 'price' => 99, 'image' => 'wm-semi-auto.png'],
-                ['label' => 'Semi-Automatic – Power Issue', 'price' => 99, 'image' => 'wm-semi-auto.png'],
-                ['label' => 'Semi-Automatic – Not Spinning/Washing', 'price' => 99, 'image' => 'wm-semi-auto.png'],
-                ['label' => 'Semi-Automatic – Draining Issue', 'price' => 99, 'image' => 'wm-semi-auto.png'],
-                ['label' => 'Semi-Automatic – Error Display', 'price' => 99, 'image' => 'wm-semi-auto.png'],
-                ['label' => 'Semi-Automatic – Unknown Issue', 'price' => 99, 'image' => 'wm-semi-auto.png'],
-                ['label' => 'Semi-Automatic – Water leakage Issue', 'price' => 99, 'image' => 'wm-semi-auto.png'],
+                ['id' => 1, 'label' => 'Diagnostic Check-Up', 'price' => 99, 'image' => 'wm-diagnose.jpeg'],
+                ['id' => 2, 'label' => 'Fully Automatic – Noise Issue', 'price' => 99, 'image' => 'wm-full-auto.png'],
+                ['id' => 3, 'label' => 'Fully Automatic – Power Issue', 'price' => 99, 'image' => 'wm-full-auto.png'],
+                ['id' => 4, 'label' => 'Fully Automatic – Not Spinning/Washing', 'price' => 99, 'image' => 'wm-full-auto.png'],
+                ['id' => 5, 'label' => 'Fully Automatic – Draining Issue', 'price' => 99, 'image' => 'wm-full-auto.png'],
+                ['id' => 6, 'label' => 'Fully Automatic – Error Display', 'price' => 99, 'image' => 'wm-full-auto.png'],
+                ['id' => 7, 'label' => 'Fully Automatic – Unknown Issue', 'price' => 99, 'image' => 'wm-full-auto.png'],
+                ['id' => 8, 'label' => 'Semi-Automatic – Noise Issue', 'price' => 99, 'image' => 'wm-semi-auto.png'],
+                ['id' => 9, 'label' => 'Semi-Automatic – Power Issue', 'price' => 99, 'image' => 'wm-semi-auto.png'],
+                ['id' => 10, 'label' => 'Semi-Automatic – Not Spinning/Washing', 'price' => 99, 'image' => 'wm-semi-auto.png'],
+                ['id' => 11, 'label' => 'Semi-Automatic – Draining Issue', 'price' => 99, 'image' => 'wm-semi-auto.png'],
+                ['id' => 12, 'label' => 'Semi-Automatic – Error Display', 'price' => 99, 'image' => 'wm-semi-auto.png'],
+                ['id' => 13, 'label' => 'Semi-Automatic – Unknown Issue', 'price' => 99, 'image' => 'wm-semi-auto.png'],
+                ['id' => 14, 'label' => 'Semi-Automatic – Water leakage Issue', 'price' => 99, 'image' => 'wm-semi-auto.png'],
             ],
             'Installation & Uninstallation' => [
-                ['label' => 'Installation – Fully Automatic Top Load', 'price' => 349, 'image' => 'wm-install.png'],
-                ['label' => 'Installation – Fully Automatic Front Load', 'price' => 349, 'image' => 'wm-install.png'],
-                ['label' => 'Installation – Semi-Automatic', 'price' => 349, 'image' => 'wm-install.png'],
-
-                ['label' => 'Uninstallation – Fully Automatic Top Load', 'price' => 349, 'image' => 'wm-uninstall.png'],
-                ['label' => 'Uninstallation – Fully Automatic Front Load', 'price' => 349, 'image' => 'wm-uninstall.png'],
-                ['label' => 'Uninstallation – Semi-Automatic', 'price' => 349, 'image' => 'wm-uninstall.png'],
+                ['id' => 15, 'label' => 'Installation – Fully Automatic Top Load', 'price' => 349, 'image' => 'wm-install.png'],
+                ['id' => 16, 'label' => 'Installation – Fully Automatic Front Load', 'price' => 349, 'image' => 'wm-install.png'],
+                ['id' => 17, 'label' => 'Installation – Semi-Automatic', 'price' => 349, 'image' => 'wm-install.png'],
+                ['id' => 18, 'label' => 'Uninstallation – Fully Automatic Top Load', 'price' => 349, 'image' => 'wm-uninstall.png'],
+                ['id' => 19, 'label' => 'Uninstallation – Fully Automatic Front Load', 'price' => 349, 'image' => 'wm-uninstall.png'],
+                ['id' => 20, 'label' => 'Uninstallation – Semi-Automatic', 'price' => 349, 'image' => 'wm-uninstall.png'],
             ],
         ];
 
@@ -122,12 +119,12 @@ class ServiceDetailController extends Controller
         'Post-Repair Cleaning: Spotless finish',
     ];
 
-    $serviceGroups = [
+     $serviceGroups = [
         'Air Cooler Diagnostic Services' => [
-            ['label' => 'Air Cooler Check-Up', 'price' => 249, 'image' => 'cooler-checkup.jpg'],
+            ['id' => 33, 'label' => 'Air Cooler Check-Up', 'price' => 249, 'image' => 'cooler-checkup.jpg'],
         ],
         'Air Cooler Full Cleaning Services' => [
-            ['label' => 'Air Cooler Full Service', 'price' => 549, 'image' => 'cooler-full-service.jpg'],
+            ['id' => 34, 'label' => 'Air Cooler Full Service', 'price' => 549, 'image' => 'cooler-full-service.jpg'],
         ],
     ];
 
@@ -156,16 +153,16 @@ elseif ($slug === 'geyser-services') {
 
     $serviceGroups = [
         'Check-Up Services' => [
-            ['label' => 'Geyser Check-Up', 'price' => 199, 'image' => 'geyser-checkup.png'],
+            ['id' => 35, 'label' => 'Geyser Check-Up', 'price' => 199, 'image' => 'geyser-checkup.png'],
         ],
         'Full Service Packages' => [
-            ['label' => 'Up to 10 Litres – Full Service', 'price' => 549, 'image' => 'geyser-service-10l.png'],
-            ['label' => '11 to 25 Litres – Full Service', 'price' => 599, 'image' => 'geyser-service-25l.png'],
-            ['label' => 'More than 25 Litres – Full Service', 'price' => 649, 'image' => 'geyser-service-40l.png'],
+            ['id' => 36, 'label' => 'Up to 10 Litres – Full Service', 'price' => 549, 'image' => 'geyser-service-10l.png'],
+            ['id' => 37, 'label' => '11 to 25 Litres – Full Service', 'price' => 599, 'image' => 'geyser-service-25l.png'],
+            ['id' => 65, 'label' => 'More than 25 Litres – Full Service', 'price' => 649, 'image' => 'geyser-service-40l.png'],
         ],
         'Installation & Uninstallation' => [
-            ['label' => 'Geyser Installation', 'price' => 449, 'image' => 'geyser-install.png'],
-            ['label' => 'Geyser Uninstallation', 'price' => 349, 'image' => 'geyser-uninstall.png'],
+            ['id' => 66, 'label' => 'Geyser Installation', 'price' => 449, 'image' => 'geyser-install.png'],
+            ['id' => 67, 'label' => 'Geyser Uninstallation', 'price' => 349, 'image' => 'geyser-uninstall.png'],
         ],
     ];
 
@@ -189,27 +186,26 @@ elseif ($slug === 'inverter-stabilizer') {
         'Ongoing Support – For queries or follow-ups',
     ];
 
-    $serviceGroups = [
-        'Inverter Services' => [
-            ['label' => 'Inverter Check-Up', 'price' => 150, 'image' => 'inverter-checkup.png'],
-            ['label' => 'Inverter Servicing – Single Battery', 'price' => 399, 'image' => 'inverter-service-1.png'],
-            ['label' => 'Inverter Servicing – Double Battery', 'price' => 499, 'image' => 'inverter-service-2.png'],
-            ['label' => 'Inverter Servicing – Triple Battery', 'price' => 599, 'image' => 'inverter-service-3.png'],
-            ['label' => 'Inverter Servicing – 4 or 6 Battery Setup', 'price' => 699, 'image' => 'inverter-service-4.png'],
-            ['label' => 'Inverter Installation – Single Battery', 'price' => 375, 'image' => 'inverter-install-1.png'],
-            ['label' => 'Inverter Installation – Double Battery', 'price' => 450, 'image' => 'inverter-install-2.png'],
-            ['label' => 'Inverter Uninstallation', 'price' => 449, 'image' => 'inverter-uninstall.png'],
-            ['label' => 'Inverter Fuse Replacement', 'price' => 129, 'image' => 'inverter-fuse.png'],
-        ],
+        $serviceGroups = [
+            'Inverter Services' => [
+                ['id' => 54, 'label' => 'Inverter Check-Up', 'price' => 150, 'image' => 'inverter-checkup.png'],
+                ['id' => 55, 'label' => 'Inverter Servicing – Single Battery', 'price' => 399, 'image' => 'inverter-service-1.png'],
+                ['id' => 56, 'label' => 'Inverter Servicing – Double Battery', 'price' => 499, 'image' => 'inverter-service-2.png'],
+                ['id' => 57, 'label' => 'Inverter Servicing – Triple Battery', 'price' => 599, 'image' => 'inverter-service-3.png'],
+                ['id' => 58, 'label' => 'Inverter Servicing – 4 or 6 Battery Setup', 'price' => 699, 'image' => 'inverter-service-4.png'],
+                ['id' => 59, 'label' => 'Inverter Installation – Single Battery', 'price' => 375, 'image' => 'inverter-install-1.png'],
+                ['id' => 60, 'label' => 'Inverter Installation – Double Battery', 'price' => 450, 'image' => 'inverter-install-2.png'],
+                ['id' => 61, 'label' => 'Inverter Uninstallation', 'price' => 449, 'image' => 'inverter-uninstall.png'],
+                ['id' => 62, 'label' => 'Inverter Fuse Replacement', 'price' => 129, 'image' => 'inverter-fuse.png'],
+            ],
+            'Stabilizer Services' => [
+                ['id' => 63, 'label' => 'Stabilizer Installation', 'price' => 349, 'image' => 'stabilizer-install.png'],
+                ['id' => 64, 'label' => 'Stabilizer Uninstallation', 'price' => 249, 'image' => 'stabilizer-uninstall.png'],
+            ],
+        ];
 
-        'Stabilizer Services' => [
-            ['label' => 'Stabilizer Installation', 'price' => 349, 'image' => 'stabilizer-install.png'],
-            ['label' => 'Stabilizer Uninstallation', 'price' => 249, 'image' => 'stabilizer-uninstall.png'],
-        ],
-    ];
-
-    return view('services.dynamic', compact('serviceTitle', 'serviceGroups', 'includes', 'steps'));
-}
+        return view('services.dynamic', compact('serviceTitle', 'serviceGroups', 'includes', 'steps'));
+    }
 
 elseif ($slug === 'television') {
     $serviceTitle = 'Television Services';
@@ -228,33 +224,33 @@ elseif ($slug === 'television') {
         'Clean-up after service',
     ];
 
-    $serviceGroups = [
-        'TV Repair Services – ₹199 Inspection Fee' => [
-            ['label' => 'Display Issues', 'price' => 199, 'image' => 'tv-display.png'],
-            ['label' => 'Power Issues', 'price' => 199, 'image' => 'tv-power.png'],
-            ['label' => 'Buzzing or Cracking Sound', 'price' => 199, 'image' => 'tv-sound.png'],
-            ['label' => 'Partial/No Display', 'price' => 199, 'image' => 'tv-partial-display.png'],
-            ['label' => 'Color Distortion', 'price' => 199, 'image' => 'tv-color.png'],
-            ['label' => 'Low/No Sound', 'price' => 199, 'image' => 'tv-nosound.png'],
-            ['label' => 'Flickering/Blurred Image', 'price' => 199, 'image' => 'tv-flicker.png'],
-            ['label' => 'Glitch Lines on Screen', 'price' => 199, 'image' => 'tv-glitch.png'],
-            ['label' => 'Unknown Issues', 'price' => 199, 'image' => 'tv-unknown.png'],
-        ],
-        'TV Wall-Mount Installation' => [
-            ['label' => 'Up to 26”', 'price' => 299, 'image' => 'tv-install-26.png'],
-            ['label' => '32” to 43”', 'price' => 549, 'image' => 'tv-install-43.png'],
-            ['label' => '46” to 55”', 'price' => 599, 'image' => 'tv-install-55.png'],
-            ['label' => '65” and above', 'price' => 799, 'image' => 'tv-install-65.png'],
-        ],
-        'TV Uninstallation' => [
-            ['label' => 'Up to 46”', 'price' => 299, 'image' => 'tv-uninstall-46.png'],
-            ['label' => '46” to 55”', 'price' => 349, 'image' => 'tv-uninstall-55.png'],
-            ['label' => '65” and above', 'price' => 549, 'image' => 'tv-uninstall-65.png'],
-        ]
-    ];
+        $serviceGroups = [
+            'TV Repair Services – ₹199 Inspection Fee' => [
+                ['id' => 38, 'label' => 'Display Issues', 'price' => 199, 'image' => 'tv-display.png'],
+                ['id' => 39, 'label' => 'Power Issues', 'price' => 199, 'image' => 'tv-power.png'],
+                ['id' => 40, 'label' => 'Buzzing or Cracking Sound', 'price' => 199, 'image' => 'tv-sound.png'],
+                ['id' => 41, 'label' => 'Partial/No Display', 'price' => 199, 'image' => 'tv-partial-display.png'],
+                ['id' => 42, 'label' => 'Color Distortion', 'price' => 199, 'image' => 'tv-color.png'],
+                ['id' => 43, 'label' => 'Low/No Sound', 'price' => 199, 'image' => 'tv-nosound.png'],
+                ['id' => 44, 'label' => 'Flickering/Blurred Image', 'price' => 199, 'image' => 'tv-flicker.png'],
+                ['id' => 45, 'label' => 'Glitch Lines on Screen', 'price' => 199, 'image' => 'tv-glitch.png'],
+                ['id' => 46, 'label' => 'Unknown Issues', 'price' => 199, 'image' => 'tv-unknown.png'],
+            ],
+            'TV Wall-Mount Installation' => [
+                ['id' => 47, 'label' => 'Up to 26”', 'price' => 299, 'image' => 'tv-install-26.png'],
+                ['id' => 48, 'label' => '32” to 43”', 'price' => 549, 'image' => 'tv-install-43.png'],
+                ['id' => 49, 'label' => '46” to 55”', 'price' => 599, 'image' => 'tv-install-55.png'],
+                ['id' => 50, 'label' => '65” and above', 'price' => 799, 'image' => 'tv-install-65.png'],
+            ],
+            'TV Uninstallation' => [
+                ['id' => 51, 'label' => 'Up to 46”', 'price' => 299, 'image' => 'tv-uninstall-46.png'],
+                ['id' => 52, 'label' => '46” to 55”', 'price' => 349, 'image' => 'tv-uninstall-55.png'],
+                ['id' => 53, 'label' => '65” and above', 'price' => 549, 'image' => 'tv-uninstall-65.png'],
+            ],
+        ];
 
-    return view('services.dynamic', compact('serviceTitle', 'serviceGroups', 'includes', 'steps'));
-}
+        return view('services.dynamic', compact('serviceTitle', 'serviceGroups', 'includes', 'steps'));
+    }
  
 elseif ($slug === 'laptop') {
     $serviceTitle = 'Laptop & MacBook Services';
@@ -275,36 +271,36 @@ elseif ($slug === 'laptop') {
 
     $serviceGroups = [
         'Quick Visit / Check-Up – ₹125' => [
-            ['label' => 'Windows Laptop Visit', 'price' => 125, 'image' => 'laptop-check.png'],
-            ['label' => 'MacBook Visit', 'price' => 125, 'image' => 'macbook-check.png'],
+            ['id' => 68, 'label' => 'Windows Laptop Visit', 'price' => 125, 'image' => 'laptop-check.png'],
+            ['id' => 69, 'label' => 'MacBook Visit', 'price' => 125, 'image' => 'macbook-check.png'],
         ],
         'Device Diagnostics – ₹125' => [
-            ['label' => 'Software/OS Issues', 'price' => 125, 'image' => 'issue-software.png'],
-            ['label' => 'Charging/Power Issue', 'price' => 125, 'image' => 'issue-power.png'],
-            ['label' => 'Display Problem', 'price' => 125, 'image' => 'issue-display.png'],
-            ['label' => 'Keyboard/Touchpad Fault', 'price' => 125, 'image' => 'issue-keyboard.png'],
-            ['label' => 'Overheating', 'price' => 125, 'image' => 'issue-overheat.png'],
-            ['label' => 'Internet/Camera Issue', 'price' => 125, 'image' => 'issue-internet.png'],
+            ['id' => 70, 'label' => 'Software/OS Issues', 'price' => 125, 'image' => 'issue-software.png'],
+            ['id' => 71, 'label' => 'Charging/Power Issue', 'price' => 125, 'image' => 'issue-power.png'],
+            ['id' => 72, 'label' => 'Display Problem', 'price' => 125, 'image' => 'issue-display.png'],
+            ['id' => 73, 'label' => 'Keyboard/Touchpad Fault', 'price' => 125, 'image' => 'issue-keyboard.png'],
+            ['id' => 74, 'label' => 'Overheating', 'price' => 125, 'image' => 'issue-overheat.png'],
+            ['id' => 75, 'label' => 'Internet/Camera Issue', 'price' => 125, 'image' => 'issue-internet.png'],
         ],
         'Deep Service – Starting ₹549' => [
-            ['label' => 'Windows Laptop Deep Service', 'price' => 549, 'image' => 'laptop-service.png'],
-            ['label' => 'MacBook Deep Service', 'price' => 549, 'image' => 'macbook-service.png'],
-            ['label' => 'Gaming Laptop Service', 'price' => 899, 'image' => 'gaming-laptop.png'],
+            ['id' => 76, 'label' => 'Windows Laptop Deep Service', 'price' => 549, 'image' => 'laptop-service.png'],
+            ['id' => 77, 'label' => 'MacBook Deep Service', 'price' => 549, 'image' => 'macbook-service.png'],
+            ['id' => 78, 'label' => 'Gaming Laptop Service', 'price' => 899, 'image' => 'gaming-laptop.png'],
         ],
         'Upgrades – Starting ₹125' => [
-            ['label' => 'Windows RAM Upgrade', 'price' => 125, 'image' => 'ram-upgrade.png'],
-            ['label' => 'MacBook RAM Upgrade', 'price' => 125, 'image' => 'ram-upgrade.png'],
-            ['label' => 'Windows HDD/SSD Upgrade', 'price' => 125, 'image' => 'hdd-upgrade.png'],
-            ['label' => 'MacBook HDD/SSD Upgrade', 'price' => 125, 'image' => 'ssd-upgrade.png'],
+            ['id' => 79, 'label' => 'Windows RAM Upgrade', 'price' => 125, 'image' => 'ram-upgrade.png'],
+            ['id' => 80, 'label' => 'MacBook RAM Upgrade', 'price' => 125, 'image' => 'ram-upgrade.png'],
+            ['id' => 81, 'label' => 'Windows HDD/SSD Upgrade', 'price' => 125, 'image' => 'hdd-upgrade.png'],
+            ['id' => 82, 'label' => 'MacBook HDD/SSD Upgrade', 'price' => 125, 'image' => 'ssd-upgrade.png'],
         ],
         'Component Installation' => [
-            ['label' => 'SSD / HDD Install', 'price' => 529, 'image' => 'ssd-install.png'],
-            ['label' => 'RAM Install', 'price' => 529, 'image' => 'ram-install.png'],
-            ['label' => 'Graphics Card Install', 'price' => 529, 'image' => 'gpu-install.png'],
+            ['id' => 83, 'label' => 'SSD / HDD Install', 'price' => 529, 'image' => 'ssd-install.png'],
+            ['id' => 84, 'label' => 'RAM Install', 'price' => 529, 'image' => 'ram-install.png'],
+            ['id' => 85, 'label' => 'Graphics Card Install', 'price' => 529, 'image' => 'gpu-install.png'],
         ],
         'System Setup' => [
-            ['label' => 'OS Installation & Setup', 'price' => 125, 'image' => 'os-setup.png'],
-        ]
+            ['id' => 86, 'label' => 'OS Installation & Setup', 'price' => 125, 'image' => 'os-setup.png'],
+        ],
     ];
 
     return view('services.dynamic', compact('serviceTitle', 'serviceGroups', 'includes', 'steps'));
@@ -329,28 +325,28 @@ elseif ($slug === 'desktop') {
 
     $serviceGroups = [
         'Quick Visit / Check-Up – ₹125' => [
-            ['label' => 'Desktop Visit', 'price' => 125, 'image' => 'desktop-check.png'],
+            ['id' => 87, 'label' => 'Desktop Visit', 'price' => 125, 'image' => 'desktop-check.png'],
         ],
         'Issue Diagnostics – ₹125' => [
-            ['label' => 'System Lag / Hanging', 'price' => 125, 'image' => 'issue-lag.png'],
-            ['label' => 'Physical Damage', 'price' => 125, 'image' => 'issue-damage.png'],
-            ['label' => 'Port / Display Issues', 'price' => 125, 'image' => 'issue-port.png'],
-            ['label' => 'Unknown Problem', 'price' => 125, 'image' => 'issue-unknown.png'],
+            ['id' => 88, 'label' => 'System Lag / Hanging', 'price' => 125, 'image' => 'issue-lag.png'],
+            ['id' => 89, 'label' => 'Physical Damage', 'price' => 125, 'image' => 'issue-damage.png'],
+            ['id' => 90, 'label' => 'Port / Display Issues', 'price' => 125, 'image' => 'issue-port.png'],
+            ['id' => 91, 'label' => 'Unknown Problem', 'price' => 125, 'image' => 'issue-unknown.png'],
         ],
         'Deep Service – ₹549' => [
-            ['label' => 'Desktop Deep Cleaning & Optimization', 'price' => 549, 'image' => 'desktop-service.png'],
+            ['id' => 92, 'label' => 'Desktop Deep Cleaning & Optimization', 'price' => 549, 'image' => 'desktop-service.png'],
         ],
         'Upgrade Services – Starting ₹125' => [
-            ['label' => 'RAM Upgrade', 'price' => 125, 'image' => 'ram-upgrade.png'],
-            ['label' => 'Hard Disk Upgrade', 'price' => 125, 'image' => 'hdd-upgrade.png'],
+            ['id' => 93, 'label' => 'RAM Upgrade', 'price' => 125, 'image' => 'ram-upgrade.png'],
+            ['id' => 94, 'label' => 'Hard Disk Upgrade', 'price' => 125, 'image' => 'hdd-upgrade.png'],
         ],
         'Component Installation' => [
-            ['label' => 'SSD Install', 'price' => 529, 'image' => 'ssd-install.png'],
-            ['label' => 'Graphic Card Install', 'price' => 529, 'image' => 'gpu-install.png'],
+            ['id' => 95, 'label' => 'SSD Install', 'price' => 529, 'image' => 'ssd-install.png'],
+            ['id' => 96, 'label' => 'Graphic Card Install', 'price' => 529, 'image' => 'gpu-install.png'],
         ],
         'System Setup' => [
-            ['label' => 'Windows OS Setup & Install', 'price' => 125, 'image' => 'os-setup.png'],
-        ]
+            ['id' => 97, 'label' => 'Windows OS Setup & Install', 'price' => 125, 'image' => 'os-setup.png'],
+        ],
     ];
 
     return view('services.dynamic', compact('serviceTitle', 'serviceGroups', 'includes', 'steps'));
