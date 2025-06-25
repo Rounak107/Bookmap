@@ -15,13 +15,15 @@
                 <h6 class="card-title">{{ $item['label'] }} – ₹{{ $item['price'] }}</h6>
                 {{-- ✅ Use REAL INTEGER ID --}}
                 <form method="POST" action="{{ route('cart.add', ['serviceId' => $item['id']]) }}">
-                    @csrf
-                    <input type="hidden" name="label" value="{{ $item['label'] }}">
-                    <input type="hidden" name="price" value="{{ $item['price'] }}">
-                    <input type="hidden" name="image" value="{{ $item['image'] }}">
-                    <input type="hidden" name="date" value="{{ now()->toDateString() }}">
-                    <button type="submit" class="btn btn-primary w-100 mt-2">Book Now</button>
-                </form>
+    @csrf
+    <input type="hidden" name="label" value="{{ $item['label'] }}">
+    <input type="hidden" name="price" value="{{ $item['price'] }}">
+    <input type="hidden" name="image" value="{{ $item['image'] }}">
+    <input type="hidden" name="date" value="{{ now()->toDateString() }}">
+    <input type="hidden" name="service_id" value="{{ $item['id'] }}"> {{-- Important for AJAX --}}
+    <button type="submit" class="btn btn-primary w-100 mt-2">Book Now</button>
+</form>
+
             </div>
         </div>
     </div>

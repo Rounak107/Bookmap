@@ -26,25 +26,25 @@ class ServiceDetailController extends Controller
 
             $serviceGroups = [
                 'Foam Jet Cleaning Service' => [
-                    ['label' => '1 AC Cleaning', 'price' => 549, 'image' => 'ac1.jpg'],
-                    ['label' => '2 ACs Cleaning', 'price' => 1049, 'image' => 'ac2.png'],
-                    ['label' => '3 ACs Cleaning', 'price' => 1400, 'image' => 'ac3.png'],
-                    ['label' => '4 ACs Cleaning', 'price' => 1900, 'image' => 'ac4.png'],
-                    ['label' => '5 ACs Cleaning', 'price' => 2400, 'image' => 'ac5.png'],
-                    ['label' => 'Lite AC Service', 'price' => 449, 'image' => 'ac-lite.png'],
+                    ['id' => 21,'label' => '1 AC Cleaning', 'price' => 549, 'image' => 'ac1.jpg'],
+                    ['id' => 22,'label' => '2 ACs Cleaning', 'price' => 1049, 'image' => 'ac2.png'],
+                    ['id' => 23,'label' => '3 ACs Cleaning', 'price' => 1400, 'image' => 'ac3.png'],
+                    ['id' => 24,'label' => '4 ACs Cleaning', 'price' => 1900, 'image' => 'ac4.png'],
+                    ['id' => 25,'label' => '5 ACs Cleaning', 'price' => 2400, 'image' => 'ac5.png'],
+                    ['id' => 26,'label' => 'Lite AC Service', 'price' => 449, 'image' => 'ac-lite.png'],
                 ],
                 'AC Repair & Gas Refill Services' => [
-                    ['label' => 'Low/No Cooling Repair', 'price' => 249, 'image' => 'repair1.png'],
-                    ['label' => 'Power Issue Repair', 'price' => 249, 'image' => 'repair2.png'],
-                    ['label' => 'Noise/Smell Issue Repair', 'price' => 449, 'image' => 'repair3.png'],
-                    ['label' => 'Water Leakage Repair', 'price' => 599, 'image' => 'repair4.png'],
-                    ['label' => 'Gas Leak Repair & Refill', 'price' => 2599, 'image' => 'repair5.png'],
+                    ['id' => 27,'label' => 'Low/No Cooling Repair', 'price' => 249, 'image' => 'repair1.png'],
+                    ['id' => 28,'label' => 'Power Issue Repair', 'price' => 249, 'image' => 'repair2.png'],
+                    ['id' => 29,'label' => 'Noise/Smell Issue Repair', 'price' => 449, 'image' => 'repair3.png'],
+                    ['id' => 30,'label' => 'Water Leakage Repair', 'price' => 599, 'image' => 'repair4.png'],
+                    ['id' => 31,'label' => 'Gas Leak Repair & Refill', 'price' => 2599, 'image' => 'repair5.png'],
                 ],
                 'AC Installation & Uninstallation' => [
-                    ['label' => 'Split AC Installation', 'price' => 1599, 'image' => 'install1.png'],
-                    ['label' => 'Window AC Installation', 'price' => 999, 'image' => 'install2.png'],
-                    ['label' => 'Split AC Uninstallation', 'price' => 799, 'image' => 'install3.png'],
-                    ['label' => 'Window AC Uninstallation', 'price' => 599, 'image' => 'install4.png'],
+                    ['id' => 32,'label' => 'Split AC Installation', 'price' => 1599, 'image' => 'install1.png'],
+                    ['id' => 33,'label' => 'Window AC Installation', 'price' => 999, 'image' => 'install2.png'],
+                    ['id' => 34,'label' => 'Split AC Uninstallation', 'price' => 799, 'image' => 'install3.png'],
+                    ['id' => 35,'label' => 'Window AC Uninstallation', 'price' => 599, 'image' => 'install4.png'],
                 ]
                 
             ];
