@@ -100,28 +100,20 @@
     {{-- ✅ 5. Kitchen Services --}}
 <h2 id="kitchen" class="fw-bold fs-3 mb-4">Kitchen Services</h2>
 <div class="row" id="kitchenServices">
-    @php
-        $kitchenServices = [
-            ['name' => 'Water Purifier', 'icon' => 'water-purifier.jfif', 'slug' => 'water-purifier'],
-            ['name' => 'Refrigerator', 'icon' => 'refrigerator.jfif', 'slug' => 'kitchen-cleaning'],
-            ['name' => 'Gas Stove & Hob Cleaning', 'icon' => 'gas-stove.jfif', 'slug' => 'stove'],
-            ['name' => 'Microwave Checkup', 'icon' => 'microwave.jfif', 'slug' => 'microwave'],
-            ['name' => 'Chimney', 'icon' => 'chimney.jfif', 'slug' => 'chimney'],
-        ];
-    @endphp
-
     @foreach ($kitchenServices as $service)
         <div class="col-md-3 col-6 mb-4">
-            <a href="{{ url('/service-details/' . $service['slug']) }}" class="text-decoration-none text-dark">
+            <a href="{{ route('service.details', ['slug' => $service->slug]) }}" class="text-decoration-none text-dark">
                 <div class="card shadow-sm hover-scale h-100 text-center p-3">
-                    <img src="{{ asset('images/icons/' . $service['icon']) }}" alt="{{ $service['name'] }}"
+                    <img src="{{ asset('images/icons/' . $service->icon) }}" alt="{{ $service->name }}"
                          class="img-fluid mx-auto" style="height: 150px; object-fit: contain;">
-                    <p class="fw-semibold mt-3">{{ $service['name'] }}</p>
+                    <p class="fw-semibold mt-3">{{ $service->name }}</p>
                 </div>
             </a>
         </div>
     @endforeach
 </div>
+
+
 
     {{-- ✅ 6. Home Interior Services --}}
 <h2 id="interior" class="fw-bold fs-3 mb-4">Home Interior Services</h2>
