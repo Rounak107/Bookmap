@@ -30,6 +30,12 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="phone">Phone Number</label>
+                    <input id="phone" type="text" class="form-control" name="phone" required>
+                </div>
+
+
+                <div class="mb-3">
                     <label for="password" class="form-label">Password (min 8 characters)</label>
                     <input id="password" type="password" class="form-control" name="password" required>
                 </div>

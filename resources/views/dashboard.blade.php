@@ -29,14 +29,18 @@
         @foreach($bookings as $booking)
             <tr>
                 <td>{{ $booking->id }}</td>
-                <td>{{ $booking->user->name ?? 'Unknown' }}<br><small>{{ $booking->user->email ?? '' }}</small></td>
+                <td>
+                    {{ $booking->user->name ?? 'Unknown' }}<br>
+                    <small>{{ $booking->user->email ?? '' }}</small><br>
+                    <small><strong>{{ $booking->user->phone ?? 'No Phone' }}</strong></small>
+                </td>
                 <td>{{ $booking->service_name }}</td>
                 <td>{{ $booking->quantity }}</td>
                 <td>₹{{ $booking->total_price }}</td>
                 <td>{{ $booking->booking_date }}</td>
                 <td>{{ strtoupper($booking->payment_method) }}</td>
                 <td>
-                    <form method="POST" action="{{ route('admin.bookings.update', $booking->id) }}">
+                    <form method="POST" action="{{ url('/admin/bookings/rounakbhuiya/'.$booking->id.'/update') }}">
                         @csrf
                         <select name="status" class="form-select form-select-sm">
                             <option {{ $booking->status == 'confirmed' ? 'selected' : '' }}>confirmed</option>
@@ -49,12 +53,11 @@
                 <td>{{ $booking->created_at }}</td>
                 <td>{{ $booking->updated_at }}</td>
                 <td>
-                    <form method="POST" action="{{ route('admin.bookings.destroy', $booking->id) }}" onsubmit="return confirm('Are you sure?')">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-</form>
-
+                    <form method="POST" action="{{ url('/admin/bookings/rounakbhuiya/'.$booking->id) }}" onsubmit="return confirm('Are you sure?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
                 </td>
             </tr>
         @endforeach

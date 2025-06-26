@@ -20,7 +20,7 @@ class AdminBookingController extends Controller
         $booking->status = $request->input('status');
         $booking->save();
 
-        return redirect()->route('admin.bookings.index')->with('success', 'Booking updated.');
+        return redirect()->route('admin.bookings')->with('success', 'Booking updated successfully.');
     }
 
     public function destroy($id)

@@ -22,9 +22,9 @@ Route::get('/service-details/{slug}', [ServiceDetailController::class, 'show'])-
 
 //Admin
 Route::prefix('admin')->group(function () {
-    Route::get('/bookings', [AdminBookingController::class, 'index'])->name('admin.bookings');
-    Route::post('/bookings/{id}/update', [AdminBookingController::class, 'update'])->name('admin.bookings.update');
-    Route::delete('/bookings/{id}', [AdminBookingController::class, 'destroy'])->name('admin.bookings.destroy');
+    Route::get('/bookings/rounakbhuiya', [AdminBookingController::class, 'index'])->name('admin.bookings');
+    Route::post('/bookings/rounakbhuiya/{id}/update', [AdminBookingController::class, 'update'])->name('admin.bookings.update');
+    Route::delete('/bookings/rounakbhuiya/{id}', [AdminBookingController::class, 'destroy'])->name('admin.bookings.destroy');
 });
 
 // Services
