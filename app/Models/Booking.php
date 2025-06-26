@@ -21,4 +21,9 @@ protected $fillable = [
 protected $casts = [
     'booking_date' => 'datetime'
 ];
+// Add this method so you can fetch user details in Admin Panel
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -10,12 +10,22 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceDetailController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\AdminBookingController;
+//use App\Http\Controllers\AdminAuthController;
+//use App\Http\Middleware\AdminMiddleware;
 
 require __DIR__.'/auth.php';
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/service-details/{slug}', [ServiceDetailController::class, 'show'])->name('service.details');
+
+//Admin
+Route::prefix('admin')->group(function () {
+    Route::get('/bookings', [AdminBookingController::class, 'index'])->name('admin.bookings');
+    Route::post('/bookings/{id}/update', [AdminBookingController::class, 'update'])->name('admin.bookings.update');
+    Route::delete('/bookings/{id}', [AdminBookingController::class, 'destroy'])->name('admin.bookings.destroy');
+});
 
 // Services
 Route::resource('services', ServiceController::class)->only(['index', 'show']);
