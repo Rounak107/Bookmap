@@ -368,10 +368,10 @@ elseif ($slug === 'chimney') {
     ];
     $serviceGroups = [
         'Chimney Cleaning' => [
-            ['id' => 98,'label' => 'Basic Chimney Cleaning', 'price' => 299, 'image' => 'chimney-clean.png'],
+            ['id' => 98,'label' => 'Basic Chimney Cleaning', 'price' => 299, 'image' => 'kitchen-chimney-cleaning-service.jpg'],
         ],
         'Combo Services' => [
-            ['id' => 99,'label' => 'Chimney + Stove Cleaning', 'price' => 369, 'image' => 'chimney-stove.png'],
+            ['id' => 99,'label' => 'Chimney + Stove Cleaning', 'price' => 369, 'image' => 'kitchen and stove.jpeg'],
         ],
     ];
     return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
@@ -391,7 +391,7 @@ elseif ($slug === 'stove') {
     ];
     $serviceGroups = [
         'Gas Stove Cleaning' => [
-            ['id' => 100,'label' => 'Gas Stove & Hob Cleaning', 'price' => 99, 'image' => 'stove-clean.png'],
+            ['id' => 100,'label' => 'Gas Stove & Hob Cleaning', 'price' => 99, 'image' => 'stove and hob.jpeg'],
         ]
     ];
     return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
@@ -443,7 +443,7 @@ elseif ($slug === 'microwave') {
     ];
     $serviceGroups = [
         'Microwave Cleaning' => [
-            ['id' => 101, 'label' => 'Microwave Interior + Exterior Cleaning', 'price' => 199, 'image' => 'microwave-clean.png']
+            ['id' => 101, 'label' => 'Microwave Interior + Exterior Cleaning', 'price' => 199, 'image' => 'microwave-cleaning.jpeg']
         ]
     ];
     return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
@@ -458,13 +458,13 @@ elseif ($slug === 'water-purifier') {
                     'id' => 102,
                     'label' => 'Water Purifier Check-Up',
                     'price' => 199,
-                    'image' => 'water-purifier.jfif',
+                    'image' => 'water-purifier_1.jpeg',
                 ],
                 [
                     'id' => 103,
                     'label' => 'Water Purifier Deep Cleaning',
                     'price' => 399,
-                    'image' => 'water-purifier.jfif',
+                    'image' => 'deep-cleaning.jpeg',
                 ]
             ],
             'Benefits of Regular Maintenance' => [
@@ -472,49 +472,185 @@ elseif ($slug === 'water-purifier') {
                     'id' => 104,
                     'label' => 'Improved Water Taste & Flow',
                     'price' => 299,
-                    'image' => 'water-purifier.jfif',
+                    'image' => 'improved-water.jpeg',
                 ],
                 [
                     'id' => 105,
                     'label' => 'Increased Filter Life',
                     'price' => 299,
-                    'image' => 'water-purifier.jfif',
+                    'image' => 'Filters-life.jpeg',
                 ]
             ]
         ]
     ]);
 }
 
-elseif ($slug === 'home-interior') {
-    return view('services.dynamic', [
-        'serviceTitle' => 'Interior Wall Painting (1BHK – Full)',
-        'serviceGroups' => [
-            'Fresh, Elegant Wall Finish by Experts' => [
-                [
-                    'label' => 'Interior Wall Painting (1BHK – Full)',
-                    'price' => 3199,
-                    'image' => 'wall-painting.jfif', // Make sure this image exists in /public/images/icons/
-                ]
-            ]
+elseif ($slug === 'modular-kitchen') {
+    $serviceTitle = 'Modular Kitchen Services';
+
+    $includes = [
+        'Cabinet setup & repair',
+        'Sink installation',
+        'Exhaust & chimney fitting',
+    ];
+
+    $steps = [
+        'Site visit & measurement',
+        'Material layout & customization',
+        'Fitting & finishing',
+    ];
+
+    $serviceGroups = [
+        'Modular Setup & Repairs' => [
+            ['id' => 206, 'label' => 'Basic Modular Setup (4 ft.)', 'price' => 2499, 'image' => 'modular-basic.jpeg'],
+            ['id' => 207, 'label' => 'Modular Cabinet Repair', 'price' => 699, 'image' => 'modular-repair.jpeg'],
+            ['id' => 208, 'label' => 'Sink & Exhaust Installation', 'price' => 899, 'image' => 'sink-exhaust.jpeg'],
         ]
-    ]);
+    ];
+
+    return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
 }
 
-elseif ($slug === 'designer-wallpaper-installation') {
-    return view('services.dynamic', [
-        'serviceTitle' => 'Designer Wallpaper Installation (Per Wall)',
-        'serviceGroups' => [
-            'Premium Wallpaper Installation by Experts' => [
-                [
-                    'label' => 'Designer Wallpaper Installation (Per Wall)',
-                    'price' => 1049,
-                    'image' => 'wallpaper.jfif', // Ensure this image exists in /public/images/icons/
-                ]
-            ]
-        ]
-    ]);
+elseif ($slug === 'interior-design-consultation') {
+    $serviceTitle = 'Home Interior';
+    $includes = [
+        'Color & lighting plan by designers',
+        'Layout suggestions and space planning',
+        'Furniture and décor consultation',
+    ];
+    $steps = [
+        'Requirement gathering',
+        'Video or home visit consultation',
+        'Design strategy submission',
+    ];
+    $serviceGroups = [
+        'Design Guidance' => [
+            ['id' => 307, 'label' => 'Interior Design', 'price' => 999, 'image' => 'interior-design.jfif'],
+        ],
+    ];
+    return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
 }
 
+
+elseif ($slug === 'false-ceiling-setup') {
+    $serviceTitle = 'False Ceiling';
+    $includes = [
+        'POP and Gypsum board ceiling work',
+        'Concealed LED lighting design',
+        'Moisture-proof and fire-retardant boards',
+    ];
+    $steps = [
+        'Measurement and planning',
+        'Metal framing and panel setup',
+        'Lighting installation & finish',
+    ];
+    $serviceGroups = [
+        'Ceiling Design' => [
+            ['id' => 306, 'label' => 'False Ceiling Setup (Per 100 sq ft)', 'price' => 4499, 'image' => 'false-ceiling.jfif'],
+        ],
+    ];
+    return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
+}
+
+elseif ($slug === 'interior-wall-painting') {
+    $serviceTitle = 'Interior Wall Painting';
+    $includes = [
+        'Elegant matte/satin/glossy paint options',
+        'Professional painters with branded tools',
+        'Eco-friendly paint options available',
+    ];
+    $steps = [
+        'Surface cleaning & putty application',
+        'Primer coat & 2 layers of color paint',
+        'Final polish & quality check',
+    ];
+    $serviceGroups = [
+        '1BHK Interior Painting' => [
+            ['id' => 301, 'label' => 'Interior Wall Painting (1BHK – Full)', 'price' => 3199, 'image' => 'wall-painting.jfif'],
+        ],
+    ];
+    return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
+}
+
+elseif ($slug === 'wallpaper-installation') {
+    $serviceTitle = 'Designer Wallpaper Installation';
+    $includes = [
+        'Designer wallpapers with floral, abstract or 3D look',
+        'Bubble-free professional application',
+        'Dust-free and safe installation',
+    ];
+    $steps = [
+        'Wall measurement & selection',
+        'Wallpaper cutting & alignment',
+        'Smooth pasting and finish',
+    ];
+    $serviceGroups = [
+        'Wallpaper Installation Services' => [
+            ['id' => 302, 'label' => 'Designer Wallpaper Installation (Per Wall)', 'price' => 1049, 'image' => 'wallpaper.jfif'],
+        ],
+    ];
+    return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
+}
+
+elseif ($slug === 'wall-printing') {
+    $serviceTitle = 'Custom Interior Wall Printing';
+    $includes = [
+        'Choose your own designs, quotes or art',
+        'UV resistant ink used for long-lasting print',
+        'Waterproof and fade-resistant quality',
+    ];
+    $steps = [
+        'Design finalization',
+        'Wall prepping and alignment',
+        'Print transfer and final sealing',
+    ];
+    $serviceGroups = [
+        'Personalized Wall Art' => [
+            ['id' => 303, 'label' => 'Custom Interior Wall Printing (Per Wall)', 'price' => 1299, 'image' => 'wall-printing.jfif'],
+        ],
+    ];
+    return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
+}
+
+elseif ($slug === 'kids-wall-painting') {
+    $serviceTitle = 'Kids Room Cartoon Wall Painting';
+    $includes = [
+        'Hand-painted jungle, space, cartoon themes',
+        'Safe, non-toxic paint used',
+        'Custom name and character options',
+    ];
+    $steps = [
+        'Design planning with parent',
+        'Base color coating',
+        'Hand-painting and final touch-up',
+    ];
+    $serviceGroups = [
+        'Creative Kids Themes' => [
+            ['id' => 304, 'label' => 'Kids Room Cartoon Wall Painting', 'price' => 2499, 'image' => 'kids-wall-painting.jfif'],
+        ],
+    ];
+    return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
+}
+
+elseif ($slug === 'texture-wall-painting') {
+    $serviceTitle = 'Wall Painting';
+    $includes = [
+        'Luxury texture finish like marble or rustic',
+        'Weather-resistant and washable options',
+        'Smooth edge and premium quality',
+    ];
+    $steps = [
+        'Texture style selection',
+        'Wall prepping with primer',
+        'Pattern rolling and curing',
+    ];
+    $serviceGroups = [
+        'Room Texture Styling' => [
+            ['id' => 305, 'label' => 'Texture Wall Painting (Per Room)', 'price' => 1899, 'image' => 'texture-wall.jfif'],
+        ],
+    ];
+    return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
+}
 
         abort(404);
     }

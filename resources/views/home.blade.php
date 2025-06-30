@@ -119,30 +119,30 @@
 <h2 id="interior" class="fw-bold fs-3 mb-4">Home Interior Services</h2>
 <div class="row" id="interiorServices">
     @php
-        $interiorServices = [
-            ['name' => 'Interior Wall Painting', 'icon' => 'wall-painting.jfif'],
-            ['name' => 'Designer Wallpaper Installation', 'icon' => 'wallpaper.jfif'],
-            ['name' => 'Custom Interior Wall Printing', 'icon' => 'wall-printing.jfif'],
-            ['name' => 'Kids Room Cartoon Wall Painting', 'icon' => 'kids-wall-painting.jfif'],
-            ['name' => 'Texture Wall Painting', 'icon' => 'texture-wall.jfif'],
-            ['name' => 'False Ceiling Setup', 'icon' => 'false-ceiling.jfif'],
-            ['name' => 'Interior Design Consultation', 'icon' => 'interior-design.jfif'],
-        ];
-    @endphp
-    @foreach ($interiorServices as $service)
-        <div class="col-md-3 col-6 mb-4 service-card">
-            <a href="{{ url('/service-details/home-interior') }}" class="text-decoration-none text-dark">
-                <div class="card shadow-sm h-100 hover-scale">
-                    <img src="{{ asset('images/icons/' . $service['icon']) }}" alt="{{ $service['name'] }}" class="card-img-top" style="height: 180px; object-fit: contain;">
-                    <div class="card-body p-2 text-center">
-                        <p class="card-text fw-semibold">{{ $service['name'] }}</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    @endforeach
-</div>
+    $interiorServices = [
+        ['name' => 'Home Interior', 'icon' => 'interior-design.jfif', 'slug' => 'interior-design-consultation'],
+        ['name' => 'False Ceiling', 'icon' => 'false-ceiling.jfif', 'slug' => 'false-ceiling-setup'],
+        ['name' => ' Wall Painting', 'icon' => 'texture-wall.jfif', 'slug' => 'texture-wall-painting'],
+        ['name' => 'Interior Wall Painting', 'icon' => 'wall-painting.jfif', 'slug' => 'interior-wall-painting'],
+        ['name' => 'Designer Wallpaper Installation', 'icon' => 'wallpaper.jfif', 'slug' => 'wallpaper-installation'],
+        ['name' => 'Custom Interior Wall Printing', 'icon' => 'wall-printing.jfif', 'slug' => 'wall-printing'],
+        ['name' => 'Kids Room Cartoon Wall Painting', 'icon' => 'kids-wall-painting.jfif', 'slug' => 'kids-wall-painting'],
+    ];
+@endphp
 
+@foreach ($interiorServices as $service)
+    <div class="col-md-3 col-6 mb-4 service-card">
+        <a href="{{ route('service.details', ['slug' => $service['slug']]) }}" class="text-decoration-none text-dark">
+            <div class="card shadow-sm h-100 hover-scale">
+                <img src="{{ asset('images/icons/' . $service['icon']) }}" alt="{{ $service['name'] }}" class="card-img-top" style="height: 180px; object-fit: contain;">
+                <div class="card-body p-2 text-center">
+                    <p class="card-text fw-semibold">{{ $service['name'] }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+@endforeach
+</div>
 </div>
 
 {{-- ✅ 7. Why Choose Us --}}
