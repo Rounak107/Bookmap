@@ -23,3 +23,7 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
+footer a.text-white:hover {
+    color: #0dcaf0; /* Light blue on hover */
+    text-decoration: underline;
+}

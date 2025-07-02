@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Service;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\ServiceDetailController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AdminBookingController;
+use Illuminate\Support\Facades\Response;
 //use App\Http\Controllers\AdminAuthController;
 //use App\Http\Middleware\AdminMiddleware;
 
@@ -29,6 +31,31 @@ Route::prefix('admin')->group(function () {
 
 // Services
 Route::resource('services', ServiceController::class)->only(['index', 'show']);
+
+//Location & Service SE
+Route::get('/service-search', function (Request $request) {
+    $query = $request->input('term');
+
+    $allowed = [
+        'Air Conditioner', 'Washing Machine', 'Air Cooler Services', 'Inverter & Stabilizer',
+        'Television', 'Laptop', 'Desktop', 'Water Purifier',
+        'Refrigerator', 'Geyser Services', 'Kitchen Service (Refrigerator)', 'Gas Stove & Hob Cleaning',
+        'Microwave', 'Microwave Checkup', 'Chimney', 'Modular Kitchen',
+        'Interior Design Consultation',            // ✅ for Home Interior
+        'False Ceiling Setup',                     // ✅ matches slug 'false-ceiling-setup'
+        'Texture Wall Painting',                   // ✅ for Wall Painting
+        'Interior Wall Painting',                  // optional if you want both variants
+        'Designer Wallpaper Installation',
+        'Custom Interior Wall Printing',
+        'Kids Room Cartoon Wall Painting'
+    ];
+
+    return \App\Models\Service::whereIn('name', $allowed)
+        ->where('name', 'like', '%' . $query . '%')
+        ->select('name', 'slug')
+        ->limit(20)
+        ->get();
+});
 
 // Cart
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');

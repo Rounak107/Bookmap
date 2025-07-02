@@ -11,39 +11,34 @@
     </div>
 @endif
 
-    {{-- ✅ 1. Carousel Banner with Arrows & Overlay Header --}}
-    <div class="position-relative mb-5" data-aos="fade-down">
-        <div id="homepageCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner" style="height: 280px; border-radius: 10px; overflow: hidden;">
-                <div class="carousel-item active">
-                    <img src="{{ asset('images/banner1.jpeg') }}" class="d-block w-100" style="height: 280px; object-fit: cover;" alt="Banner 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('images/banner2.jpeg') }}" class="d-block w-100" style="height: 280px; object-fit: cover;" alt="Banner 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('images/banner3.jpeg') }}" class="d-block w-100" style="height: 280px; object-fit: cover;" alt="Banner 3">
-                </div>
+   {{-- ✅ 1. Carousel Banner with Swipe-Only (No Arrows) --}}
+<div class="position-relative mb-5" data-aos="fade-down">
+    <div id="homepageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" style="height: 300px; border-radius: 10px; overflow: hidden;">
+            <div class="carousel-item active">
+                <img src="{{ asset('images/banner1.jpeg') }}" class="d-block w-100" style="height: 300px; object-fit: cover;" alt="Banner 1">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#homepageCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#homepageCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
-            </button>
-        </div>
-
-        {{-- Overlay Header --}}
-        <div class="position-absolute top-0 start-50 translate-middle-x text-center text-white" style="z-index: 10; width: 100%; padding-top: 110px;">
-            <h1 class="display-5 fw-bold text-shadow">Available Services</h1>
-            <p class="lead">Book professional home services with just a few clicks</p>
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <span class="badge bg-light text-dark py-2 px-3 fs-6"><i class="fas fa-check-circle text-success me-2"></i> Verified Professionals</span>
-                <span class="badge bg-light text-dark py-2 px-3 fs-6"><i class="fas fa-shield-alt text-primary me-2"></i> 100% Quality Assurance</span>
-                <span class="badge bg-light text-dark py-2 px-3 fs-6"><i class="fas fa-rupee-sign text-info me-2"></i> Transparent Pricing</span>
+            <div class="carousel-item">
+                <img src="{{ asset('images/banner2.jpeg') }}" class="d-block w-100" style="height: 300px; object-fit: cover;" alt="Banner 2">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('images/banner3.jpeg') }}" class="d-block w-100" style="height: 300px; object-fit: cover;" alt="Banner 3">
             </div>
         </div>
     </div>
+
+    {{-- Overlay Header --}}
+    <div class="position-absolute top-0 start-50 translate-middle-x text-center text-white" style="z-index: 10; width: 100%; padding-top: 110px;">
+        <h1 class="display-5 fw-bold text-shadow">Available Services</h1>
+        <p class="lead">Book professional home services with just a few clicks</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <span class="badge bg-light text-dark py-2 px-3 fs-6"><i class="fas fa-check-circle text-success me-2"></i> Verified Professionals</span>
+            <span class="badge bg-light text-dark py-2 px-3 fs-6"><i class="fas fa-shield-alt text-primary me-2"></i> 100% Quality Assurance</span>
+            <span class="badge bg-light text-dark py-2 px-3 fs-6"><i class="fas fa-rupee-sign text-info me-2"></i> Transparent Pricing</span>
+        </div>
+    </div>
+</div>
+
 
     {{-- ✅ 2. Horizontal Category Bar with Dropdowns --}}
     <div class="bg-white shadow-sm py-3 mb-4 rounded sticky-top" style="z-index: 1000;">

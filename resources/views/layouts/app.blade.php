@@ -102,6 +102,17 @@
             align-items: center;
             justify-content: center;
         }
+       
+        footer a.text-white:hover {
+    color: #0dcaf0;
+    transition: 0.3s ease;
+}
+
+footer a.text-white {
+    text-decoration: none;
+}
+
+        
 
         /* ✅ Service Card Hover Grow & Glow */
         .service-card {
@@ -142,6 +153,20 @@
    @if(session('success'))
 <script>
     alert("{{ session('success') }}");
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+    
+});
+
 </script>
 @endif
 
