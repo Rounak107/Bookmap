@@ -14,6 +14,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" type="image/jpeg" href="{{ asset('images/favicon.jpg') }}">
     
+    <!-- SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     
@@ -153,24 +155,32 @@ footer a.text-white {
     <main class="flex-grow-1 py-4">
    @if(session('success'))
 <script>
-    alert("{{ session('success') }}");
+    document.addEventListener('DOMContentLoaded', function () {
+        const successMsg = @json(session('success'));
+        let messageText = ''; // default: no text
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
+        if (successMsg.toLowerCase().includes('added to cart')) {
+            messageText = 'You can proceed to checkout.';
+        } else if (successMsg.toLowerCase().includes('removed') || successMsg.toLowerCase().includes('cleared')) {
+            messageText = 'Please add services to your cart.';
         }
-    });
-    
-});
 
+        Swal.fire({
+            icon: 'success',
+            title: successMsg,
+            text: messageText,
+            showConfirmButton: false,
+            timer: 2000,
+            background: '#ffffff',
+            color: '#155724',
+            iconColor: '#28a745',
+            customClass: {
+                popup: 'shadow-lg rounded-lg'
+            }
+        });
+    });
 </script>
 @endif
-
 
 
         @yield('content')
@@ -181,6 +191,8 @@ footer a.text-white {
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     @yield('scripts')
+    <!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 </html>

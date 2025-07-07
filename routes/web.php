@@ -13,6 +13,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AdminBookingController;
 use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\Auth\OTPLoginController;
 //use App\Http\Controllers\AdminAuthController;
 //use App\Http\Middleware\AdminMiddleware;
 
@@ -28,6 +29,12 @@ Route::prefix('admin')->group(function () {
     Route::post('/bookings/rounakbhuiya/{id}/update', [AdminBookingController::class, 'update'])->name('admin.bookings.update');
     Route::delete('/bookings/rounakbhuiya/{id}', [AdminBookingController::class, 'destroy'])->name('admin.bookings.destroy');
 });
+
+//OTP Generator
+Route::get('/login', [OTPLoginController::class, 'showOtpForm'])->name('login');
+Route::post('/send-otp', [OTPLoginController::class, 'sendOtp'])->name('otp.send');
+Route::post('/verify-otp', [OTPLoginController::class, 'verifyOtp'])->name('otp.verify');
+
 
 // Services
 Route::resource('services', ServiceController::class)->only(['index', 'show']);
