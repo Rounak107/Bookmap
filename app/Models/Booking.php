@@ -16,6 +16,10 @@ protected $fillable = [
     'booking_date',
     'payment_method',
     'status',
+    'location',
+    'tax_percentage',     
+    'tax_amount',         
+    'grand_total' 
 ];
 
 protected $casts = [

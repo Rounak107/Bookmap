@@ -13,7 +13,7 @@ class Kernel extends HttpKernel
         'role' => \App\Http\Middleware\CheckRole::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        
+        'admin.auth' => \App\Http\Middleware\AdminAuth::class,
 
 
     ];

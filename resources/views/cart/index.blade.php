@@ -87,22 +87,26 @@
 </div>
 @endsection
 
-@section('scripts')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@push('scripts')
 <script>
+    // Set CSRF token for all jQuery AJAX requests
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+    });
+    
     $(document).ready(function () {
+        console.log("Cart script loaded");
 
-        // ✅ Increase Quantity (Event Delegation)
         $(document).on('click', '.increase-btn', function () {
             const id = $(this).data('id');
+            console.log("Increase button clicked for ID:", id);
 
             $.ajax({
                 url: '/cart/increase/' + id,
                 type: 'POST',
-                data: { _token: '{{ csrf_token() }}' },
                 success: function (res) {
-                    console.log(res); 
-                    
                     if (res.success) {
                         $('#qty-' + id).text(res.item.quantity);
                         $('#price-' + id).text('₹' + res.item.total);
@@ -113,21 +117,20 @@
             });
         });
 
-        // ✅ Decrease Quantity (Event Delegation)
         $(document).on('click', '.decrease-btn', function () {
             const id = $(this).data('id');
+            console.log("Decrease button clicked for ID:", id);
 
             $.ajax({
                 url: '/cart/decrease/' + id,
                 type: 'POST',
-                data: { _token: '{{ csrf_token() }}' },
                 success: function (res) {
                     if (res.success) {
                         if (res.item.quantity > 0) {
                             $('#qty-' + id).text(res.item.quantity);
                             $('#price-' + id).text('₹' + res.item.total);
                         } else {
-                            $('#row-' + id).remove(); // If quantity 0, remove row
+                            $('#row-' + id).remove();
                         }
                         $('#cart-count').text(res.count);
                         $('#cart-total').text(res.cartTotal);
@@ -136,11 +139,10 @@
             });
         });
 
-
-        // ✅ Update Date (Event Delegation)
         $(document).on('change', '.date-picker', function () {
             const id = $(this).data('id');
             const date = $(this).val();
+            console.log("Date updated for ID:", id, "to:", date);
 
             $.ajax({
                 url: '/cart/update-date/' + id,
@@ -156,8 +158,8 @@
                 }
             });
         });
-
     });
 </script>
-@endsection
+@endpush
+
 

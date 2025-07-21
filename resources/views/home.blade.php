@@ -48,10 +48,7 @@
                    ['name' => 'Home Services', 'icon' => 'fas fa-home', 'id' => 'home', 'subs' => ['AC Repair', 'Carpentry', 'Electrician']],
                    ['name' => 'Kitchen', 'icon' => 'fas fa-utensils', 'id' => 'kitchen', 'subs' => ['Refrigerator', 'Microwave', 'Chimney']],
                    ['name' => 'Home Interior', 'icon' => 'fas fa-couch', 'id' => 'interior', 'subs' => ['Wallpaper', 'False Ceiling', 'Wall Paint']],
-                   ['name' => 'Cleaning', 'icon' => 'fas fa-broom', 'id' => 'cleaning', 'subs' => ['Sofa Cleaning', 'Bathroom Cleaning']],
-                   ['name' => 'Pest Control', 'icon' => 'fas fa-bug', 'id' => 'pest', 'subs' => []],
-                   ['name' => 'Plumber', 'icon' => 'fas fa-wrench', 'id' => 'plumber', 'subs' => []],
-                   ['name' => 'Painting', 'icon' => 'fas fa-paint-roller', 'id' => 'painting', 'subs' => []],
+                   ['name' => '2-Wheeler Services', 'icon' => 'fas fa-motorcycle', 'id' => 'twoWheeler', 'subs' => ['Motorbike Service', 'Scooty Service']],
                 ];
             @endphp
 
@@ -140,7 +137,31 @@
 </div>
 </div>
 
-{{-- ✅ 7. Why Choose Us --}}
+{{-- ✅ 7. 2-Wheeler Services --}}
+<div class="container">
+<h2 id="twoWheeler" class="fw-bold fs-3 mb-4">2-Wheeler Services</h2>
+<div class="row" id="twoWheelerServices">
+    @foreach ($bikeServices as $service)
+        <div class="col-md-3 col-6 mb-4 service-card">
+            <a href="{{ route('service.details', ['slug' => $service->slug]) }}" class="text-decoration-none text-dark">
+                <div class="card shadow-sm hover-scale h-100 text-center p-3">
+                    @php
+                        $imageFileName = strtolower(str_replace(' ', '-', $service->name)) . '.png';
+                    @endphp
+                    <img src="{{ asset('images/icons/' . $imageFileName) }}"
+                         alt="{{ $service->name }}"
+                         class="img-fluid mx-auto"
+                         style="height: 150px; object-fit: contain;">
+                    <p class="fw-semibold mt-3">{{ $service->name }}</p>
+                </div>
+            </a>
+        </div>
+    @endforeach
+</div>
+</div>
+
+
+{{-- ✅ 8. Why Choose Us --}}
     <div class="bg-light p-5 rounded mt-5 shadow-sm text-center">
         <h2 class="fw-bold mb-3">Why Choose BokMap?</h2>
         <p class="text-muted">We're revolutionizing home services in Kolkata</p>
@@ -175,7 +196,7 @@
         </div>
     </div>
 
-{{-- ✅ 8. Filter Script --}}
+{{-- ✅ 9. Filter Script --}}
 @push('scripts')
 <script>
     document.getElementById('filterInput').addEventListener('keyup', function () {

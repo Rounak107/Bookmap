@@ -31,10 +31,12 @@
             <div class="col-lg-2 col-md-4">
                 <h5 class="fw-bold mb-4">Services</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#home" class="text-white text-decoration-none">Home Services</a></li>
-                    <li class="mb-2"><a href="#kitchen" class="text-white text-decoration-none">Kitchen Services</a></li>
-                    <li class="mb-2"><a href="#interior" class="text-white text-decoration-none">Home Interior</a></li>
+                    <li class="mb-2"><a href="{{ url('/#home') }}" class="text-white text-decoration-none">Home Services</a></li>
+                    <li class="mb-2"><a href="{{ url('/#kitchen') }}" class="text-white text-decoration-none">Kitchen Services</a></li>
+                    <li class="mb-2"><a href="{{ url('/#interior') }}" class="text-white text-decoration-none">Home Interior</a></li>
+                    <li class="mb-2"><a href="{{ url('/#twoWheeler') }}" class="text-white text-decoration-none">2-Wheeler Services</a></li>  
                 </ul>
+
             </div>
 
             <!-- Company -->
@@ -76,8 +78,8 @@
             </div>
             <div class="col-md-6 text-center text-md-end">
                 <p class="mb-0">
-                    <a href="#" class="text-white text-decoration-none me-3">Privacy Policy</a>
-                    <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                    <a href="{{ route('privacy') }}" class="text-white text-decoration-none me-3">Privacy Policy</a>
+                    <a href="{{ route('terms') }}" class="text-white text-decoration-none">Terms of Service</a>
                 </p>
             </div>
         </div>

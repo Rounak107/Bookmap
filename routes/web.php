@@ -14,8 +14,8 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\AdminBookingController;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Auth\OTPLoginController;
-//use App\Http\Controllers\AdminAuthController;
-//use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\AdminDashboardController;
 
 require __DIR__.'/auth.php';
 
@@ -23,12 +23,13 @@ require __DIR__.'/auth.php';
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/service-details/{slug}', [ServiceDetailController::class, 'show'])->name('service.details');
 
-//Admin
-Route::prefix('admin')->group(function () {
-    Route::get('/bookings/rounakbhuiya', [AdminBookingController::class, 'index'])->name('admin.bookings');
-    Route::post('/bookings/rounakbhuiya/{id}/update', [AdminBookingController::class, 'update'])->name('admin.bookings.update');
-    Route::delete('/bookings/rounakbhuiya/{id}', [AdminBookingController::class, 'destroy'])->name('admin.bookings.destroy');
-});
+// Admin Login Routes
+Route::get('/admin/bookings/b4uzyd61f0s5-a2b4cc2', [AdminLoginController::class, 'showLoginForm'])->name('admin.login.form');
+Route::post('/admin/bookings/b4uzyd61f0s5-a2b4cc2', [AdminLoginController::class, 'login'])->name('admin.login.submit');
+Route::post('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
+
+Route::get('/admin/bookings/yend8rv-29s6f1-d68s', [AdminBookingController::class, 'index'])->name('admin.bookings');
+Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
 //OTP Generator
 Route::get('/login', [OTPLoginController::class, 'showOtpForm'])->name('login');
@@ -96,3 +97,12 @@ Route::prefix('bookings')->group(function () {
     Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
     Route::get('/success/{booking}', [BookingController::class, 'success'])->name('bookings.success');
 });
+
+// Privacy and Terms pages
+Route::get('/privacy-policy', function () {
+    return view('policies.privacy');
+})->name('privacy');
+
+Route::get('/terms-of-service', function () {
+    return view('policies.terms');
+})->name('terms');

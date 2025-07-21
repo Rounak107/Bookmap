@@ -652,6 +652,56 @@ elseif ($slug === 'texture-wall-painting') {
     return view('services.dynamic', compact('serviceTitle', 'includes', 'steps', 'serviceGroups'));
 }
 
+elseif ($slug === 'motorbike-service') {
+    $serviceTitle = 'Motorbike Services';
+
+    $includes = [
+        'Periodic check-up and maintenance for motorbikes',
+        'Chain lubrication, brake check, oil check (if needed)',
+        'Complete inspection of engine, lights, tires, etc.',
+    ];
+
+    $steps = [
+        'Book online & choose your time slot',
+        'Technician visits your home',
+        'Complete bike service at doorstep',
+    ];
+
+    $serviceGroups = [
+        'Motorbike Service Options' => [
+            ['id' => 310, 'label' => 'Basic Motorbike Service', 'price' => 399, 'image' => 'motorbike-service.png'],
+            ['id' => 311, 'label' => 'Premium Motorbike Service', 'price' => 999, 'image' => 'motorbike-service.png'],
+        ],
+    ];
+
+    return view('services.dynamic', compact('serviceTitle', 'serviceGroups', 'includes', 'steps'));
+}
+
+elseif ($slug === 'scooty-service') {
+    $serviceTitle = 'Scooty Services';
+
+    $includes = [
+        'Scooter check-up: brakes, lights, battery, tires, engine',
+        'Lubrication and minor adjustments',
+        'Ideal for both electric and petrol scooters',
+    ];
+
+    $steps = [
+        'Choose your service option',
+        'Book a convenient time',
+        'Service done at home by expert',
+    ];
+
+    $serviceGroups = [
+        'Scooty Service Options' => [
+            ['id' => 312, 'label' => 'Basic Scooty Service', 'price' => 349, 'image' => 'scooty-service.png'],
+            ['id' => 313, 'label' => 'Premium Scooty Service', 'price' => 799, 'image' => 'scooty-service.png'],
+        ],
+    ];
+
+    return view('services.dynamic', compact('serviceTitle', 'serviceGroups', 'includes', 'steps'));
+}
+
         abort(404);
     }
 }

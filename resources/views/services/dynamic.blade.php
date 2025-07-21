@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -21,7 +22,7 @@
     <input type="hidden" name="image" value="{{ $item['image'] }}">
     <input type="hidden" name="date" value="{{ now()->toDateString() }}">
     <input type="hidden" name="service_id" value="{{ $item['id'] }}"> {{-- Important for AJAX --}}
-    <button type="submit" class="btn btn-primary w-100 mt-2">Book Now</button>
+    <button type="submit" class="btn btn-book w-100 mt-1">Book Now</button>
 </form>
 
             </div>

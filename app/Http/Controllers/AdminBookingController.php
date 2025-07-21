@@ -10,6 +10,10 @@ class AdminBookingController extends Controller
 {
     public function index()
     {
+        if (!session()->has('admin_email')) {
+            return redirect()->route('admin.login.form');
+        }
+
         $bookings = Booking::with('user')->latest()->get();
         return view('dashboard', compact('bookings'));
     }
